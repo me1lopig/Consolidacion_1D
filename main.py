@@ -8,6 +8,8 @@
 import os
 import numpy as np
 
+import librerias
+
 
 # borrado de la pantalla para Mac, Linux y Windows
 if os.name == "posix" or os.name=="mac":
@@ -35,6 +37,9 @@ mv=float(input('Coeficiente de compresibilidad volumetrico [m2/kN] ='))
 # calculo del asiento maximo
 s_max=longitud*mv*Ti; 
 permeabilidad=c*mv*10; # coeficiente de permeabilidad [m/dia]
+
+
+
 
 
 
