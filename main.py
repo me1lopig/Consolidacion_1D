@@ -3,8 +3,7 @@
 # permeable/impermeable
 # Metodo de las Diferencias Finitas
 # Metodo explicito
-# con este programa se obtienen tres archivos de salida para su analisis
-# y cuatro capturas de resultados graficos
+
 
 u=0
 u0=0
@@ -27,5 +26,11 @@ permeabilidad=c*mv*10; # coeficiente de permeabilidad [m/dia]
 # definicion de la malla
 h=float(input('Incremento de x[m]= '))
 k=float(input('Incremento de t[dias]= '))
-#tiempo_max=input('Tiempo maximo[Dias]  = ');
 # comprobacion de la convergencia del metodo
+
+alfa=c*k/h++2
+if (alfa>0.5):
+    print('El modelo no es convergente alfa>0.5 \n')
+    print('Reinicie el programa e introduzca los datos correctamente')
+    exit() # se detiene el programa
+print('alfa = ',alfa)
