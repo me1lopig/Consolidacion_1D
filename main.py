@@ -4,7 +4,10 @@
 # Metodo de las Diferencias Finitas
 # Metodo explicito
 
+#importacion de librerias
 import os
+import numpy as np
+
 
 # borrado de la pantalla para Mac, Linux y Windows
 if os.name == "posix" or os.name=="mac":
@@ -17,8 +20,7 @@ elif os.name == "ce" or os.name == "nt" or os.name == "dos":
 
 u=0
 u0=0
-# borrado del archivo
-#limpiamos las variables
+
 # Entrada de datos
 longitud=float(input('Espesor del estrato [m]='))
 
@@ -52,4 +54,28 @@ while True:
         print('El modelo es convergente alfa<=0.5')
         print('alfa = ',alfa)
         break
-    
+
+
+
+while True:
+# introducción de las condiciones de contorno
+# calculos especificos en funcion de las condiciones de contorno
+# Seleccion del tipo de calculo a realizar
+    print('Tipos de condiciones de contorno')
+    print('[1] Permeable-Permeable')
+    print('[2] Permeable-Impermeable')
+    print('[3] Impermeable-Permeable')
+    tipo_calculo=int(input('Seleccionar el tipo de condiciones de contorno [1],[2],[3] ='))
+
+    if (tipo_calculo==1):
+        print('Permeable-Permeable')
+        break
+    elif(tipo_calculo==2):
+        print('Permeable-Impermeabbe')
+        break
+    elif(tipo_calculo==3):
+        print('Impermeable-Permeable')
+        break
+    else:
+        print('Entrada erronea probar de nuevo')
+
