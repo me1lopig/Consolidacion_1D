@@ -4,6 +4,16 @@
 # Metodo de las Diferencias Finitas
 # Metodo explicito
 
+import os
+
+# borrado de la pantalla para Mac, Linux y Windows
+if os.name == "posix" or os.name=="mac":
+    os.system("clear")
+elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+    os.system("cls")
+
+
+# inicio del programa main
 
 u=0
 u0=0
@@ -23,14 +33,23 @@ mv=float(input('Coeficiente de compresibilidad volumetrico [m2/kN] ='))
 # calculo del asiento maximo
 s_max=longitud*mv*Ti; 
 permeabilidad=c*mv*10; # coeficiente de permeabilidad [m/dia]
-# definicion de la malla
-h=float(input('Incremento de x[m]= '))
-k=float(input('Incremento de t[dias]= '))
-# comprobacion de la convergencia del metodo
 
-alfa=c*k/h++2
-if (alfa>0.5):
-    print('El modelo no es convergente alfa>0.5 \n')
-    print('Reinicie el programa e introduzca los datos correctamente')
-    exit() # se detiene el programa
-print('alfa = ',alfa)
+
+
+# comprobacion de la convergencia del metodo
+alfa=1
+while True:
+    # definicion de la malla
+    h=float(input('Incremento de x[m]= '))
+    k=float(input('Incremento de t[dias]= '))
+    alfa=c*k/h**2
+    if (alfa>0.5):
+        print('El modelo no es convergente alfa>0.5')
+        print('alfa = ',alfa)
+        print('Reintroduzca los datos de la malla correctamente')
+        
+    else:
+        print('El modelo es convergente alfa<=0.5')
+        print('alfa = ',alfa)
+        break
+    
