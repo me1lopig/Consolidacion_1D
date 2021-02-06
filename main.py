@@ -1,4 +1,4 @@
-# Solucion Numerica de la Ecuacion de la consolidacion
+b                                        # Solucion Numerica de la Ecuacion de la consolidacion
 # para las condiciones de contorno permeable/permeable y
 # permeable/impermeable
 # Metodo de las Diferencias Finitas
