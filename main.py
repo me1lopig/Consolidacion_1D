@@ -4,10 +4,11 @@
 # Metodo de las Diferencias Finitas
 # Metodo explicito
 
-#importacion de librerias
+#importacion de librerias 
 import os
 import numpy as np
 
+#librerias propias
 import librerias
 
 
@@ -18,8 +19,7 @@ elif os.name == "ce" or os.name == "nt" or os.name == "dos":
     os.system("cls")
 
 
-# inicio del programa main
-
+# declaracion de las variables iniciales 
 u=0
 u0=0
 
@@ -28,6 +28,8 @@ longitud=float(input('Espesor del estrato [m]='))
 
 # condiciones iniciales
 Ti=float(input('Carga exterior [kPa]='))
+
+
 T0=0 # condicion de contorno permeable
 TL=0  # condicion de contorno permeable
 
@@ -37,10 +39,6 @@ mv=float(input('Coeficiente de compresibilidad volumetrico [m2/kN] ='))
 # calculo del asiento maximo
 s_max=longitud*mv*Ti; 
 permeabilidad=c*mv*10; # coeficiente de permeabilidad [m/dia]
-
-
-
-
 
 
 # comprobacion de la convergencia del metodo
@@ -60,7 +58,8 @@ while True:
         print('alfa = ',alfa)
         break
 
-
+#creamos el archivo de los datos de entrada del modelo
+librerias.archivo_datos(longitud,Ti,c,mv,permeabilidad,h,k,alfa);
 
 while True:
 # introducción de las condiciones de contorno
@@ -76,7 +75,7 @@ while True:
         print('Permeable-Permeable')
         break
     elif(tipo_calculo==2):
-        print('Permeable-Impermeabbe')
+        print('Permeable-Impermeable')
         break
     elif(tipo_calculo==3):
         print('Impermeable-Permeable')
