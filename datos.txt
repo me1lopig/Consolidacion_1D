@@ -12,4 +12,5 @@ Permeabiidad 2.4583e-05 [m/dia]
 Parámetros geométricos y de convergencia del modelo
 El valor del intervalo en x [m]= 1.00
 El valor del intervalo en t [dias]= 1.00
-El valor del coeficiente de convergencia [alfa]= 0.029
+El valor del coeficiente de convergencia [alfa]= 0.02950
+El tipo de contorno seleccionado es Impermeable-Permeable 

@@ -1,8 +1,9 @@
-# librerias y funciiones de calculos
+
+# librerias de creación de archivos de salida de resultados y de cálculos
 
 
 
-def archivo_datos(espesor,carga,coefConso,coefComp,permeabilidad,x,t,alfa):
+def archivo_datos(espesor,carga,coefConso,coefComp,permeabilidad,x,t,alfa,tipoContorno):
     # imprime los datos de entrada para los cálculos del problema
 
     f = open ('datos.txt','w')
@@ -21,4 +22,5 @@ def archivo_datos(espesor,carga,coefConso,coefComp,permeabilidad,x,t,alfa):
     f.write('El valor del intervalo en x [m]= %.2f\n'%x)
     f.write('El valor del intervalo en t [dias]= %.2f\n'%t)
     f.write('El valor del coeficiente de convergencia [alfa]= %.5f\n'%alfa)
-    f.close()
+    f.write('El tipo de contorno seleccionado es %s '%tipoContorno)
+    f.close() # cerramos el archivos

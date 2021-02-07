@@ -8,8 +8,8 @@
 import os
 import numpy as np
 
-#librerias propias
-import librerias
+#librerias propias de creacion de archivos
+import libreriasArchivos
 
 
 # borrado de la pantalla para Mac, Linux y Windows
@@ -41,6 +41,7 @@ s_max=longitud*mv*Ti;
 permeabilidad=c*mv*10; # coeficiente de permeabilidad [m/dia]
 
 
+
 # comprobacion de la convergencia del metodo
 alfa=1
 while True:
@@ -58,9 +59,24 @@ while True:
         print('alfa = ',alfa)
         break
 
-#creamos el archivo de los datos de entrada del modelo
-librerias.archivo_datos(longitud,Ti,c,mv,permeabilidad,h,k,alfa);
 
+
+# creacion del vector espacial inicial
+nx=np.floor(longitud/h); # numero de elementos del intervalo
+if longitud/h!=nx:
+    print('division no entera del intervalo x\n')
+else:
+    print('division entera del intervalo x \n')
+
+# creacion de los vectores iniciales
+u0=np.ones(1,nx+1)*Ti; #  valores iniciales
+x=np.arange(0,longitud+h,h) # division de x
+
+
+# maximo grado de consolidacion a alcanzar
+max_U=input('Maximo grado de consolidacion a calcular [%] =');
+
+# seleccion del tipo de contorno de la capa de arcilla saturada
 while True:
 # introducción de las condiciones de contorno
 # calculos especificos en funcion de las condiciones de contorno
@@ -69,17 +85,22 @@ while True:
     print('[1] Permeable-Permeable')
     print('[2] Permeable-Impermeable')
     print('[3] Impermeable-Permeable')
+   
     tipo_calculo=int(input('Seleccionar el tipo de condiciones de contorno [1],[2],[3] ='))
 
     if (tipo_calculo==1):
-        print('Permeable-Permeable')
+        tipoContorno='Permeable-Permeable'
         break
     elif(tipo_calculo==2):
-        print('Permeable-Impermeable')
+        tipoContorno='Permeable-Impermeable'
         break
     elif(tipo_calculo==3):
-        print('Impermeable-Permeable')
+        tipoContorno='Impermeable-Permeable'
         break
     else:
         print('Entrada erronea probar de nuevo')
+    
+print(tipoContorno)
 
+#creamos el archivo de los datos de entrada del modelo
+libreriasArchivos.archivo_datos(longitud,Ti,c,mv,permeabilidad,h,k,alfa,tipoContorno);
