@@ -23,4 +23,4 @@ def archivo_datos(espesor,carga,coefConso,coefComp,permeabilidad,x,t,alfa,tipoCo
     f.write('El valor del intervalo en t [dias]= %.2f\n'%t)
     f.write('El valor del coeficiente de convergencia [alfa]= %.5f\n'%alfa)
     f.write('El tipo de contorno seleccionado es %s '%tipoContorno)
-    f.close() # cerramos el archivos
+    f.close() # cerramos el archivo creado

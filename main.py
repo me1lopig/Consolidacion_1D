@@ -9,7 +9,8 @@ import os
 import numpy as np
 
 #librerias propias de creacion de archivos
-import libreriasArchivos
+import archivos
+import calculos
 
 
 # borrado de la pantalla para Mac, Linux y Windows
@@ -17,11 +18,6 @@ if os.name == "posix" or os.name=="mac":
     os.system("clear")
 elif os.name == "ce" or os.name == "nt" or os.name == "dos":
     os.system("cls")
-
-
-# declaracion de las variables iniciales 
-u=0
-u0=0
 
 # Entrada de datos
 longitud=float(input('Espesor del estrato [m]='))
@@ -60,17 +56,17 @@ while True:
         break
 
 
-
 # creacion del vector espacial inicial
-nx=np.floor(longitud/h); # numero de elementos del intervalo
+nx=int(longitud/h) # numero de elementos del intervalo
 if longitud/h!=nx:
     print('division no entera del intervalo x\n')
 else:
     print('division entera del intervalo x \n')
 
-# creacion de los vectores iniciales
-u0=np.ones(1,nx+1)*Ti; #  valores iniciales
-x=np.arange(0,longitud+h,h) # division de x
+# creacion de los vectores iniciales de presiones y del intervalo espacial
+u0=np.ones(nx+1)*Ti #  valores iniciales de presiones
+u=np.zeros(nx+1) #  vector de presiones
+x=np.arange(0,longitud+h,h) # division de x intervalo espacial
 
 
 # maximo grado de consolidacion a alcanzar
@@ -90,6 +86,7 @@ while True:
 
     if (tipo_calculo==1):
         tipoContorno='Permeable-Permeable'
+        calculos.permeable_permeable(u0)
         break
     elif(tipo_calculo==2):
         tipoContorno='Permeable-Impermeable'
@@ -100,7 +97,7 @@ while True:
     else:
         print('Entrada erronea probar de nuevo')
     
-print(tipoContorno)
+
 
 #creamos el archivo de los datos de entrada del modelo
-libreriasArchivos.archivo_datos(longitud,Ti,c,mv,permeabilidad,h,k,alfa,tipoContorno);
+archivos.archivo_datos(longitud,Ti,c,mv,permeabilidad,h,k,alfa,tipoContorno);

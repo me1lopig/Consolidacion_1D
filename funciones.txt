@@ -1,0 +1,9 @@
+Lista de archivos y significado
+
+Archivos del programa
+main.py funcion de inicio del programa
+archivos.py libreria de funciones de salida de archivos 
+calculos.py librería de funciones de calculos de disipación de presiones
+
+Archivos de salida
+datos.txt archivo de salida de los datos de entrada del modelo

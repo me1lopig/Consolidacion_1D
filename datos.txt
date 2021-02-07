@@ -6,11 +6,11 @@ Carga exterior 120.00 [kPa]
 
 Parámetros del terreno
 Coeficiente de consolidacion 0.0295 [m2/dia]
-Coeficiente de compresibilidad volumetrico 8.3333e-05 [m2/kN]
-Permeabiidad 2.4583e-05 [m/dia]
+Coeficiente de compresibilidad volumetrico 8.333e-05 [m2/kN]
+Permeabiidad 2.4582e-05 [m/dia]
 
 Parámetros geométricos y de convergencia del modelo
 El valor del intervalo en x [m]= 1.00
 El valor del intervalo en t [dias]= 1.00
 El valor del coeficiente de convergencia [alfa]= 0.02950
-El tipo de contorno seleccionado es Impermeable-Permeable 
+El tipo de contorno seleccionado es Permeable-Permeable 
