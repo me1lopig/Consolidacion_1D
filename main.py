@@ -98,6 +98,5 @@ while True:
         print('Entrada erronea probar de nuevo')
     
 
-
 #creamos el archivo de los datos de entrada del modelo
 archivos.archivo_datos(longitud,Ti,c,mv,permeabilidad,h,k,alfa,tipoContorno);

@@ -10,7 +10,6 @@ def permeable_permeable(u0,u,carga,nx,alfa):
     T0=0 # condicion de contorno permeable
     TL=0 # condicion de contorno permeable
 
-  
 
 # esquema en diferencias finitas explicitas
 # calculo de la primera columna
