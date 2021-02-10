@@ -37,7 +37,6 @@ s_max=longitud*mv*Ti;
 permeabilidad=c*mv*10; # coeficiente de permeabilidad [m/dia]
 
 
-
 # comprobacion de la convergencia del metodo
 alfa=1
 while True:
