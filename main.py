@@ -23,7 +23,7 @@ elif os.name == "ce" or os.name == "nt" or os.name == "dos":
 longitud=float(input('Espesor del estrato [m]='))
 
 # condiciones iniciales
-Ti=float(input('Carga exterior [kPa]='))
+carga=float(input('Carga exterior [kPa]='))
 
 
 T0=0 # condicion de contorno permeable
@@ -33,7 +33,7 @@ TL=0  # condicion de contorno permeable
 c=float(input('Coeficiente de consolidacion [m2/dia] ='))
 mv=float(input('Coeficiente de compresibilidad volumetrico [m2/kN] ='))
 # calculo del asiento maximo
-s_max=longitud*mv*Ti; 
+s_max=longitud*mv*carga; 
 permeabilidad=c*mv*10; # coeficiente de permeabilidad [m/dia]
 
 
@@ -63,13 +63,13 @@ else:
     print('division entera del intervalo x \n')
 
 # creacion de los vectores iniciales de presiones y del intervalo espacial
-u0=np.ones(nx+1)*Ti #  valores iniciales de presiones
+u0=np.ones(nx+1)*carga #  valores iniciales de presiones
 u=np.zeros(nx+1) #  vector de presiones
 x=np.arange(0,longitud+h,h) # division de x intervalo espacial
 
 
 # maximo grado de consolidacion a alcanzar
-max_U=input('Maximo grado de consolidacion a calcular [%] =');
+U_max=input('Maximo grado de consolidacion a calcular [%] =');
 
 # seleccion del tipo de contorno de la capa de arcilla saturada
 while True:
@@ -85,7 +85,7 @@ while True:
 
     if (tipo_calculo==1):
         tipoContorno='Permeable-Permeable'
-        calculos.permeable_permeable(u0)
+        calculos.permeable_permeable(u0,u,carga,nx,alfa)
         break
     elif(tipo_calculo==2):
         tipoContorno='Permeable-Impermeable'
@@ -98,4 +98,4 @@ while True:
     
 
 #creamos el archivo de los datos de entrada del modelo
-archivos.archivo_datos(longitud,Ti,c,mv,permeabilidad,h,k,alfa,tipoContorno);
+archivos.archivo_datos(longitud,carga,c,mv,permeabilidad,h,k,alfa,tipoContorno);

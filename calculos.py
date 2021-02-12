@@ -19,7 +19,13 @@ def permeable_permeable(u0,u,carga,nx,alfa):
     for i in range(1,nx):
         u[i]=alfa*(u0[i+1]+u0[i-1]-2*u0[i])+u0[i]
 
-
+    # restauramos las condiciones iniciales para los siguientes calculos
+    u[0]=T0
+    u[nx]=TL
+    grado_consolidacion=0 # inicializamos el grado de consolidación
+    t=1 # tiempo inicial
     print('u=',u)
+
+
 
 
