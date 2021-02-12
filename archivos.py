@@ -2,7 +2,6 @@
 # librerias de creación de archivos de salida de resultados y de cálculos
 
 
-
 def archivo_datos(espesor,carga,coefConso,coefComp,permeabilidad,x,t,alfa,tipoContorno):
     # imprime los datos de entrada para los cálculos del problema
 
