@@ -20,8 +20,6 @@ def permeable_permeable(u0,u,carga,nx,alfa):
         u[i]=alfa*(u0[i+1]+u0[i-1]-2*u0[i])+u0[i]
 
 
-  
-u=[0,0,0,0,0,0,0]
-u0=[120,120,120,120,120,]
+    print('u=',u)
 
 
