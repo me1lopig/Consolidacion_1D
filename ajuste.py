@@ -10,4 +10,5 @@ xx = np.linspace(min(x),max(x))
 yy = np.polyval(pol,xx)         # valor del polinomio en los puntos de la matriz xx
 
 plt.plot(xx, yy, '-',x, y, 'ro')
-#plt.axis([min(xx)-d, max(xx)+d, min(yy)-d, max(yy)+d])
+#plt.axis([min(xx)-d, max(xx)+d, min(yy)-d, max(yy)+d])'ped
+pregunta=input('Punto de parada')
