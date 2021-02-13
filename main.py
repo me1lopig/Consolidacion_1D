@@ -32,7 +32,7 @@ lbl_espesor.place(x=20,y=100)
 
 #caja de texto de espesor del estrato
 espesor=tk.DoubleVar()
-txt_espesor = tk.Entry(window, width=5,textvariable=espesor)
+txt_espesor = tk.Entry(window, width=5,validate=espesor)
 txt_espesor.place(x=350, y=100)
 
 #unidades de entrada
@@ -45,7 +45,7 @@ lbl_carga.place(x=20,y=125)
 
 #caja de texto de la carga exterior
 carga=tk.DoubleVar()
-txt_carga = tk.Entry(window, width=5,textvariable=carga)
+txt_carga = tk.Entry(window, width=5,validate=carga)
 txt_carga.place(x=350, y=125)
 
 #unidades de entrada
@@ -63,7 +63,7 @@ lbl_cv.place(x=20,y=200)
 
 #caja de texto de entrada
 cv=tk.DoubleVar()
-txt_cv = tk.Entry(window, width=5,textvariable=cv)
+txt_cv = tk.Entry(window, width=5,validate=cv)
 txt_cv.place(x=350, y=200)
 
 #unidades de entrada
@@ -79,7 +79,7 @@ lbl_mv.place(x=20,y=225)
 
 #caja de texto de entrada
 mv=tk.DoubleVar()
-txt_mv = tk.Entry(window, width=5,textvariable=mv)
+txt_mv = tk.Entry(window, width=5,validate=mv)
 txt_mv.place(x=350, y=225)
 
 #unidades de entrada
@@ -95,7 +95,7 @@ lbl_x.place(x=20,y=250)
 
 #caja de texto de entrada
 x=tk.DoubleVar()
-txt_x = tk.Entry(window, width=5,textvariable=x)
+txt_x = tk.Entry(window, width=5,validate=x)
 txt_x.place(x=350, y=250)
 
 #unidades de entrada
