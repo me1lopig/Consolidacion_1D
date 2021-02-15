@@ -17,16 +17,9 @@ raiz.resizable(False,False) # se evita el modificar las dimensiones de la ventan
 
 
 #colocacion de las etiqueta de entrada de datos de espesor del estrato
-# encabezadp
-lbl_geometria=Label(raiz, text="Aproximación de la Ecuación de la Consolidación mediante el método de Diferencias Finitas")
-lbl_geometria.place(x=20,y=10)
-lbl_geometria.pack()
-lbl_geometria.config(font=('Arial', 17)) #Cambiar tipo y tamaño de fuente
-lbl_geometria.config(fg="black") #Cambiar color del texto
 
-
-lbl_cartel=Label(raiz, text="Caso de carga uniformemente distribuda")
-lbl_cartel.place(x=20,y=40)
+lbl_cartel=Label(raiz, text="Introducción de los datos para los cálculos")
+lbl_cartel.place(x=20,y=60)
 lbl_cartel.pack()
 lbl_cartel.config(font=('Arial', 15)) #Cambiar tipo y tamaño de fuente
 lbl_cartel.config(fg="black") #Cambiar color del texto
@@ -45,37 +38,39 @@ cargasGeometria.config(relief='groove')
 
 
 lbl_geometria=Label(cargasGeometria, text="Características de cargas y geometría")
-lbl_geometria.place(x=20,y=0)
+lbl_geometria.grid(row=0,column=0,sticky='w',pady=5)
 
 
 lbl_espesor=Label(cargasGeometria, text="Espesor del estrato")
-lbl_espesor.place(x=20,y=25)
+lbl_espesor.grid(row=1,column=0,sticky='w')
 
 #caja de texto de espesor del estrato
 
 T_espesor=StringVar()
 txt_espesor = Entry(cargasGeometria, width=5,textvariable=T_espesor)
-txt_espesor.place(x=350, y=25)
+#txt_espesor.pack()
+txt_espesor.grid(row=1,column=1,sticky='w')
 espesor = T_espesor.get()
 
 
 #unidades de entrada
 lbl_Uespesor=Label(cargasGeometria, text=" [m]")
-lbl_Uespesor.place(x=400,y=25)
+lbl_Uespesor.grid(row=1,column=2,sticky='w')
 
 #colocacion de las etiqueta de entrada de datos de espesor de carga exterior
 lbl_carga=Label(cargasGeometria, text="Carga exterior")
-lbl_carga.place(x=20,y=50)
+lbl_carga.grid(row=2,column=0,sticky='w')
 
 #caja de texto de la carga exterior
 T_carga=StringVar()
-txt_carga = Entry(cargasGeometria, width=5,textvariable=T_carga)
-txt_carga.place(x=350, y=50)
-carga = T_carga.get()
+txt_carga = Entry(cargasGeometria, width=5,textvariable=T_carga.get())
+#txt_carga.pack()
+txt_carga.grid(row=2,column=1,sticky='w',pady=5)
+#carga = T_carga.get()
 
 #unidades de entrada
 lbl_Ucarga=Label(cargasGeometria, text=" [kPa]")
-lbl_Ucarga.place(x=400,y=50)
+lbl_Ucarga.grid(row=2,column=2,sticky='w')
 
 
 
@@ -102,6 +97,7 @@ lbl_cv.place(x=20,y=25)
 #caja de texto de entrada
 T_cv=StringVar()
 txt_cv = Entry(parametrosTerreno, width=5,textvariable=T_cv)
+#txt_cv.pack()
 txt_cv.place(x=350, y=25)
 cv = T_cv.get()
 
@@ -150,6 +146,7 @@ lbl_x.place(x=20,y=25)
 #caja de texto de entrada de los valores del espaciado en x
 T_x=StringVar()
 txt_x = Entry(datosMallado, width=5,textvariable=T_x)
+#txt_x.pack()
 txt_x.place(x=350, y=25)
 x = T_x.get()
 
@@ -167,6 +164,7 @@ lbl_t.place(x=20,y=50)
 #caja de texto de entrada de los valores del espaciado en t
 T_t=StringVar()
 txt_t = Entry(datosMallado, width=5,textvariable=T_t)
+#txt_t.pack()
 txt_t.place(x=350, y=50)
 x = T_t.get()
 
@@ -217,12 +215,12 @@ botones.config(relief='groove')
 #definición de los botones
 
 boton_ejecuta=Button(botones, text="Calcular", command=sumar)
-boton_ejecuta.place(x=40,y=10)
+boton_ejecuta.grid(row=0,column=0,pady=10,padx=10)
 boton_ejecuta.config(width='8',height='2') # dimensiones del boton
 
 #cerramos la aplicación
 boton_salir=Button(botones, text="Salir", command=raiz.destroy)
-boton_salir.place(x=40,y=55)
+boton_salir.grid(row=0,column=1,pady=10,padx=10)
 boton_salir.config(width='8',height='2') # dimensiones del boton
 
 
