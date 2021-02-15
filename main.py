@@ -128,9 +128,6 @@ lbl_Umv.place(x=400,y=50)
 
 
 
-
-
-
 # entrada de los datos de entrada de las condiciones de contorno
 datosMallado=Frame() # declaramos un frame
 datosMallado.pack() # empaquetado del frame 
