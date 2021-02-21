@@ -2,19 +2,41 @@
 
 from tkinter import *
 
-def sumar():
-    # funcion de prueba
-    print('Holi')
+#librerias propias de creacion de archivos
+import archivos
 
+
+#-----------------Funciones auxiliares----------
 def calcular():
     # tomamos los datos de cada uno de los casilleros de entrada
-    T_espesor.get()
-    T_carga.get()
-    T_cv.get() # coeficiente de consolidación
-    T_mv.get() # coefiente de compresibilidad
-    T_x.get() # espaciamiento de la malla
-    T_t.get() # incremento de tiempo
-    print('el valor de mv=%.4f'% float(T_mv))
+    espesor=float(T_espesor.get()) # potencia del estratoclear
+    carga=float(T_carga.get()) # carga sobre el terreno
+    cv=float(T_cv.get()) # coeficiente de consolidación
+    mv=float(T_mv.get()) # coefiente de compresibilidad
+    x=float(T_x.get()) # espaciamiento de la malla
+    t=float(T_t.get()) # incremento de tiempo
+
+    # Cálculo de las variables intermedias
+    
+    
+    # selección de las condicioens de contorno
+
+    tipo_calculo=radioValue.get()
+
+    if (tipo_calculo==0):
+        tipoContorno='Permeable-Permeable'
+    elif(tipo_calculo==1):
+        tipoContorno='Permeable-Impermeable'
+    elif(tipo_calculo==2):
+        tipoContorno='Impermeable-Permeable'
+    
+
+    # --------- variables auxiliares------------
+    permeabilidad=cv*mv*10; # coeficiente de permeabilidad [m/dia]
+    alfa=cv*t/x  # coeficiente de Courant del modelo
+
+    #creamos el archivo de los datos de entrada del modelo
+    archivos.archivo_datos(espesor,carga,cv,mv,permeabilidad,x,t,alfa,tipoContorno)
 
 
 
@@ -196,7 +218,7 @@ condicionesContorno.config(relief='groove')
 lbl_tipocontorno=Label(condicionesContorno, text="Selección de las condiciones de contorno")
 lbl_tipocontorno.place(x=0,y=0)
 
-radioValue = IntVar() 
+radioValue = IntVar() # valor del tipo de contorno selccionado 
 
 rdioOne = Radiobutton(condicionesContorno, text='Permeable-Permeable',variable=radioValue, value=0) # valor activo por defecto
 rdioTwo = Radiobutton(condicionesContorno, text='Permeable-Impermeable',variable=radioValue, value=1) 
@@ -221,7 +243,7 @@ botones.config(relief='groove')
 
 #definición de los botones
 
-boton_ejecuta=Button(botones, text="Calcular", command=calcular)
+boton_ejecuta=Button(botones, text="Calcular", command=calcular) # se usa una función lambda 
 boton_ejecuta.grid(row=0,column=0,pady=10,padx=10)
 boton_ejecuta.config(width='8',height='2') # dimensiones del boton
 

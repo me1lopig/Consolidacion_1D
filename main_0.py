@@ -98,4 +98,4 @@ while True:
     
 
 #creamos el archivo de los datos de entrada del modelo
-archivos.archivo_datos(longitud,carga,c,mv,permeabilidad,h,k,alfa,tipoContorno);
+archivos.archivo_datos(longitud,carga,c,mv,permeabilidad,h,k,alfa,tipoContorno)
