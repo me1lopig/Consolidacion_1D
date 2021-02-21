@@ -6,6 +6,18 @@ def sumar():
     # funcion de prueba
     print('Holi')
 
+def calcular():
+    # tomamos los datos de cada uno de los casilleros de entrada
+    T_espesor.get()
+    T_carga.get()
+    T_cv.get() # coeficiente de consolidación
+    T_mv.get() # coefiente de compresibilidad
+    T_x.get() # espaciamiento de la malla
+    T_t.get() # incremento de tiempo
+    print('el valor de mv=%.4f'% float(T_mv))
+
+
+
 
 
 # definición de la ventana
@@ -63,7 +75,7 @@ lbl_carga.grid(row=2,column=0,sticky='w')
 
 #caja de texto de la carga exterior
 T_carga=StringVar()
-txt_carga = Entry(cargasGeometria, width=5,textvariable=T_carga.get())
+txt_carga = Entry(cargasGeometria, width=5,textvariable=T_carga)
 #txt_carga.pack()
 txt_carga.grid(row=2,column=1,sticky='w',pady=5)
 #carga = T_carga.get()
@@ -71,8 +83,6 @@ txt_carga.grid(row=2,column=1,sticky='w',pady=5)
 #unidades de entrada
 lbl_Ucarga=Label(cargasGeometria, text=" [kPa]")
 lbl_Ucarga.grid(row=2,column=2,sticky='w')
-
-
 
 
 
@@ -99,7 +109,6 @@ T_cv=StringVar()
 txt_cv = Entry(parametrosTerreno, width=5,textvariable=T_cv)
 #txt_cv.pack()
 txt_cv.grid(row=1,column=1,sticky='w',pady=5)
-cv = T_cv.get()
 
 #unidades de entrada
 lbl_Ucv=Label(parametrosTerreno, text=" [m2/día]")
@@ -173,7 +182,6 @@ lbl_Ut=Label(datosMallado, text=" [días]")
 #lbl_Ut.grid(row=2,column=2,sticky='w')
 
 
-
 # entrada de los datos de entrada de las condiciones de contorno
 condicionesContorno=Frame() # declaramos un frame
 condicionesContorno.pack() # empaquetado del frame 
@@ -184,16 +192,15 @@ condicionesContorno.config(cursor='hand2')
 condicionesContorno.config(relief='groove')
 
 
-
 # Selección de las condiciones de contorno mediante un radiobutton dentro del Frame
 lbl_tipocontorno=Label(condicionesContorno, text="Selección de las condiciones de contorno")
 lbl_tipocontorno.place(x=0,y=0)
 
 radioValue = IntVar() 
 
-rdioOne = Radiobutton(condicionesContorno, text='Permeable-Permeable',variable=radioValue, value=1) 
-rdioTwo = Radiobutton(condicionesContorno, text='Permeable-Impermeable',variable=radioValue, value=2) 
-rdioThree = Radiobutton(condicionesContorno, text='Impermeable-Permeable',variable=radioValue, value=3)
+rdioOne = Radiobutton(condicionesContorno, text='Permeable-Permeable',variable=radioValue, value=0) # valor activo por defecto
+rdioTwo = Radiobutton(condicionesContorno, text='Permeable-Impermeable',variable=radioValue, value=1) 
+rdioThree = Radiobutton(condicionesContorno, text='Impermeable-Permeable',variable=radioValue, value=2)
 rdioOne.select
 # colocacion de los radiobutton
 rdioOne.place(x=20, y=25)
@@ -214,7 +221,7 @@ botones.config(relief='groove')
 
 #definición de los botones
 
-boton_ejecuta=Button(botones, text="Calcular", command=sumar)
+boton_ejecuta=Button(botones, text="Calcular", command=calcular)
 boton_ejecuta.grid(row=0,column=0,pady=10,padx=10)
 boton_ejecuta.config(width='8',height='2') # dimensiones del boton
 
