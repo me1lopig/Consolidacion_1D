@@ -1,24 +1,27 @@
-# ejemplo de ventanas
+# Solucion Numerica de la Ecuacion de la consolidacion
+# para las condiciones de contorno permeable/permeable y
+# permeable/impermeable
+# Metodo de las Diferencias Finitas
+# Metodo explicito
 
+#importacion de librerias 
 from tkinter import *
 
-#librerias propias de creacion de archivos
-import archivos
+#librerias propias 
+import archivos # creación del archivo de los datos iniciales
 
 
 #-----------------Funciones auxiliares----------
 def calcular():
     # tomamos los datos de cada uno de los casilleros de entrada
-    espesor=float(T_espesor.get()) # potencia del estratoclear
+    espesor=float(T_espesor.get()) # potencia del estrato
     carga=float(T_carga.get()) # carga sobre el terreno
     cv=float(T_cv.get()) # coeficiente de consolidación
     mv=float(T_mv.get()) # coefiente de compresibilidad
     x=float(T_x.get()) # espaciamiento de la malla
     t=float(T_t.get()) # incremento de tiempo
 
-    # Cálculo de las variables intermedias
-    
-    
+     
     # selección de las condicioens de contorno
 
     tipo_calculo=radioValue.get()
@@ -40,8 +43,7 @@ def calcular():
 
 
 
-
-
+#-----------Inicio del programa----------------------------
 # definición de la ventana
 raiz=Tk()
 raiz.title("Aproximación de la Ecuación de la Consolidación mediante el método de Diferencias Finitas")
@@ -61,7 +63,7 @@ lbl_cartel.config(fg="black") #Cambiar color del texto
 
 
 # entrada de los datos de las condiciones de los parametros del terreno
-cargasGeometria=Frame() # declaramos un frame como contenedor
+cargasGeometria=Frame(raiz) # declaramos un frame como contenedor
 cargasGeometria.pack() # empaquetado del frame 
 cargasGeometria.place(x=20,y=70) # posicionamiento del frame
 cargasGeometria.config(width='550',height='90') # dimensiones del frame
@@ -110,7 +112,7 @@ lbl_Ucarga.grid(row=2,column=2,sticky='w')
 
 
 # entrada de los datos de las condiciones de los parametros del terreno
-parametrosTerreno=Frame() # declaramos un frame como contenedor
+parametrosTerreno=Frame(raiz) # declaramos un frame como contenedor
 parametrosTerreno.pack() # empaquetado del frame 
 parametrosTerreno.place(x=20,y=182) # posicionamiento del frame
 parametrosTerreno.config(width='550',height='100') # dimensiones del frame
@@ -156,7 +158,7 @@ lbl_Umv.grid(row=2,column=2)
 
 
 # entrada de los datos de entrada de las condiciones de contorno
-datosMallado=Frame() # declaramos un frame
+datosMallado=Frame(raiz) # declaramos un frame
 datosMallado.pack() # empaquetado del frame 
 datosMallado.place(x=20,y=285) # posicionamiento del frame
 datosMallado.config(width='550',height='120') # dimensiones del frame
@@ -205,7 +207,7 @@ lbl_Ut=Label(datosMallado, text=" [días]")
 
 
 # entrada de los datos de entrada de las condiciones de contorno
-condicionesContorno=Frame() # declaramos un frame
+condicionesContorno=Frame(raiz) # declaramos un frame
 condicionesContorno.pack() # empaquetado del frame 
 condicionesContorno.place(x=20,y=410) # posicionamiento del frame
 condicionesContorno.config(width='350',height='120') # dimensiones del frame
@@ -233,7 +235,7 @@ rdioThree.place(x=20, y=75)
 # Colocación del Frame para colocar los botones de ejecucion
 
 # Frame de la entrada de los botones
-botones=Frame() # declaramos un frame
+botones=Frame(raiz) # declaramos un frame
 botones.pack() # empaquetado del frame 
 botones.place(x=400,y=425) # posicionamiento del frame
 botones.config(width='180',height='140') # dimensiones del frame
