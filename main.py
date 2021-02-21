@@ -219,7 +219,7 @@ boton_ejecuta.grid(row=0,column=0,pady=10,padx=10)
 boton_ejecuta.config(width='8',height='2') # dimensiones del boton
 
 #cerramos la aplicación
-boton_salir=Button(botones, text="Salir", command=raiz.destroy)
+boton_salir=Button(botones, text="Salir", command=raiz.destroy) # salimos de la aplicación
 boton_salir.grid(row=0,column=1,pady=10,padx=10)
 boton_salir.config(width='8',height='2') # dimensiones del boton
 
