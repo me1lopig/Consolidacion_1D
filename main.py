@@ -8,7 +8,7 @@
 from tkinter import *
 
 #librerias propias 
-import archivos # creación del archivo de los datos iniciales
+import archivos # creación del archivo de los datos para realizar los cálculos
 
 
 #-----------------Funciones auxiliares----------
