@@ -1,23 +1,33 @@
 
-#!/usr/bin/env python
-#-*- coding: utf-8 -*-
+from tkinter import *
 
-import tkinter as tk
+# Configuración de la raíz
+root = Tk()
 
-raiz = tk.Tk()
+menubar = Menu(root)
+root.config(menu=menubar)
 
-def hola():
-    print ("Hola!")
+filemenu = Menu(menubar, tearoff=0)
+filemenu.add_command(label="Nuevo")
+filemenu.add_command(label="Abrir")
+filemenu.add_command(label="Guardar")
+filemenu.add_command(label="Cerrar")
+filemenu.add_separator()
+filemenu.add_command(label="Salir", command=root.quit)
 
+editmenu = Menu(menubar, tearoff=0)
+editmenu.add_command(label="Cortar")
+editmenu.add_command(label="Copiar")
+editmenu.add_command(label="Pegar")
 
+helpmenu = Menu(menubar, tearoff=0)
+helpmenu.add_command(label="Ayuda")
+helpmenu.add_separator()
+helpmenu.add_command(label="Acerca de...")
 
-menubar = tk.Menu(raiz) # Crear el menu principal
-raiz.config(menu=menubar) # visualizamos el menú
-menubarra=tk.Menu(menubar)
-menubarra.add_command(label="Hola", command=hola)
-menubarra.add_command(label="Salir", command=raiz.quit)
-menubar.add_cascade(label="Colores", menu=menubarra)
+menubar.add_cascade(label="Archivo", menu=filemenu)
+menubar.add_cascade(label="Editar", menu=editmenu)
+menubar.add_cascade(label="Ayuda", menu=helpmenu)
 
-
-# Mostrar la ventana
-raiz.mainloop()
+# Finalmente bucle de la aplicación
+root.mainloop()
