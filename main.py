@@ -43,6 +43,10 @@ def calcular():
     archivos.archivo_datos(espesor,carga,cv,mv,permeabilidad,x,t,alfa,tipoContorno)
 
 
+# ---------Funciones de menu--------
+def hola():
+    print("Hola esto lo hace el menú")
+
 
 #-----------Inicio del programa----------------------------
 # definición de la ventana
@@ -51,6 +55,19 @@ raiz.title("Aproximación de la Ecuación de la Consolidación mediante el méto
 raiz.geometry('720x550') # dimensiones de la ventana
 raiz.state(newstate = "normal")
 raiz.resizable(False,False) # se evita el modificar las dimensiones de la ventana (ancho, alto)
+
+
+# Crear el menu principal
+menubarra = tk.Menu(raiz)
+menubarra.add_command(label="Hola", command=hola)
+menubarra.add_command(label="Salir", command=raiz.quit)
+
+# Mostrar el menu
+raiz.config(menu=menubarra)
+
+
+
+
 
 
 #colocacion de las etiqueta de entrada de datos de espesor del estrato
