@@ -3,6 +3,7 @@
 # permeable/impermeable
 # Metodo de las Diferencias Finitas
 # Metodo explicito
+# hay otro código en MatLab
 
 #importacion de librerias 
 from tkinter import *
