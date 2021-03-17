@@ -1,16 +1,16 @@
 Datos del modelo 
 
 Datos de contorno
-Espesor del estrato  6.00 [m] 
-Carga exterior 120.00 [kPa] 
+Espesor del estrato  5.00 [m] 
+Carga exterior 150.00 [kPa] 
 
-Par√°metros del terreno
+Par·metros del terreno
 Coeficiente de consolidacion 0.0295 [m2/dia]
-Coeficiente de compresibilidad volumetrico 8.333e-05 [m2/kN]
-Permeabiidad 2.4582e-05 [m/dia]
+Coeficiente de compresibilidad volumetrico 8.33e-05 [m2/kN]
+Permeabiidad 2.4573e-05 [m/dia]
 
-Par√°metros geom√©tricos y de convergencia del modelo
-El valor del intervalo en x [m]= 0.15
-El valor del intervalo en t [dias]= 1.00
-El valor del coeficiente de convergencia [alfa]= 0.19667
-El tipo de contorno seleccionado es Permeable-Impermeable 
+Par·metros geomÈtricos y de convergencia del modelo
+El valor del intervalo en x [m]= 0.10
+El valor del intervalo en t [dias]= 0.10
+El valor del coeficiente de convergencia [alfa]= 0.29500
+El tipo de contorno seleccionado es Permeable-Permeable 
