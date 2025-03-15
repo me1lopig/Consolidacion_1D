@@ -17,6 +17,8 @@ def solve_consolidation_1d(cv=0.01, H=10, delta_sigma=100,
     max_time      - Tiempo máximo de simulación [día] (opcional)
     """
     # Ajustar nt si se especifica max_time
+      
+    
     if max_time is not None:
         nt = int(max_time / dt) + 1
     
@@ -53,9 +55,9 @@ def solve_consolidation_1d(cv=0.01, H=10, delta_sigma=100,
     
     for j in range(nt):
         # Integración numérica para calcular el área bajo la curva u(z)
-        # (método del trapecio)
-        u_avg = np.trapz(u[j, :], z) / H
-        u_avg_initial = np.trapz(u[0, :], z) / H
+        # Usamos trapezoid en lugar de trapz (que está obsoleto)
+        u_avg = np.trapezoid(u[j, :], z) / H
+        u_avg_initial = np.trapezoid(u[0, :], z) / H
         
         # Grado de consolidación
         if u_avg_initial > 0:  # Evitar división por cero
@@ -166,6 +168,40 @@ u, z, t, U = solve_consolidation_1d(
     delta_sigma=100,# Incremento de carga [kPa]
     nz=50,          # Puntos en espacio
     dt=0.5,         # Paso de tiempo [día]
-    max_time=1000   # Tiempo máximo [día]
+    max_time=6000   # Tiempo máximo [día]
 )
+
+# Animación independiente que muestra la evolución del proceso
+def create_animation(u, z, t, U, delta_sigma):
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+    
+    # Gráfico de presión vs profundidad
+    line, = ax1.plot([], [])
+    ax1.set_xlim(0, 1)
+    ax1.set_ylim(max(z), min(z))
+    ax1.set_xlabel('u/Δσ (Presión de poro normalizada)')
+    ax1.set_ylabel('Profundidad (m)')
+    ax1.grid(True)
+    title1 = ax1.set_title('')
+    
+    # Gráfico de grado de consolidación vs tiempo
+    line2, = ax2.plot([], [], 'r-', linewidth=2)
+    point, = ax2.plot([], [], 'bo', markersize=6)
+    ax2.set_xlim(0, max(t))
+    ax2.set_ylim(0, 105)
+    ax2.set_xlabel('Tiempo (días)')
+    ax2.set_ylabel('U (Grado de consolidación) [%]')
+    ax2.grid(True)
+    
+    # Determinar el número de frames para la animación
+    n_frames = min(100, len(t))
+    frame_indices = np.linspace(0, len(t)-1, n_frames).astype(int)
+    
+    def init():
+        line.set_data([], [])
+        line2.set_data([], [])
+        point.set_data([], [])
+        return line, line2, point
+    
+
 
