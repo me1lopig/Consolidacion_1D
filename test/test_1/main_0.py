@@ -9,7 +9,7 @@ import os
 import numpy as np
 
 #librerias propias de creacion de archivos
-import archivos
+import funciones as fn
 import calculos
 
 
@@ -98,4 +98,4 @@ while True:
     
 
 #creamos el archivo de los datos de entrada del modelo
-archivos.archivo_datos(longitud,carga,c,mv,permeabilidad,h,k,alfa,tipoContorno)
+fn.archivo_datos(longitud,carga,c,mv,permeabilidad,h,k,alfa,tipoContorno)

@@ -1,5 +1,6 @@
+# archivo contenedor de las funciones 
 
-# librerias de creación de archivos de salida de resultados y de cálculos
+# archivo datos->Guarda los datos de entrada del modelo en un archivo de texto 
 
 
 def archivo_datos(espesor,carga,coefConso,coefComp,permeabilidad,x,t,alfa,tipoContorno):
@@ -12,7 +13,7 @@ def archivo_datos(espesor,carga,coefConso,coefComp,permeabilidad,x,t,alfa,tipoCo
     f.write('Espesor del estrato % .2f [m] \n'%espesor)
     f.write('Carga exterior %.2f [kPa] \n'%carga)
 
-    f.write('\nParámetros del terreno\n')
+    f.write('\nParametros del terreno\n')
     f.write('Coeficiente de consolidacion %.5g [m2/dia]\n'%coefConso)
     f.write('Coeficiente de compresibilidad volumetrico %.5g [m2/kN]\n'%coefComp)
     f.write('Permeabiidad %.5g [m/dia]\n'%permeabilidad)
